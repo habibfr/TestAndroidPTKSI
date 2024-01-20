@@ -30,20 +30,7 @@ public class SekolahDatabase extends SQLiteOpenHelper {
     public static final String COL_JUMLAH_SISWA = "jumlah_siswa";
 
     // sql untuk membuat tabel
-    private static final String SQL_CREATE_TABLE =
-            "CREATE TABLE " + TABLE_NAME + " (" +
-                    COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    COL_TIPE + " TEXT," +
-                    COL_NAMA + " TEXT," +
-                    COL_ALAMAT + " TEXT," +
-                    COL_KODE_POS + " TEXT," +
-                    COL_PROVINSI + " TEXT," +
-                    COL_KOTA + " TEXT," +
-                    COL_TELP + " TEXT," +
-                    COL_EMAIL + " TEXT," +
-                    COL_FACEBOOK + " TEXT," +
-                    COL_JUMLAH_SISWA + " INTEGER" +
-                    ")";
+    private static final String SQL_CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COL_TIPE + " TEXT," + COL_NAMA + " TEXT," + COL_ALAMAT + " TEXT," + COL_KODE_POS + " TEXT," + COL_PROVINSI + " TEXT," + COL_KOTA + " TEXT," + COL_TELP + " TEXT," + COL_EMAIL + " TEXT," + COL_FACEBOOK + " TEXT," + COL_JUMLAH_SISWA + " INTEGER" + ")";
 
     public SekolahDatabase(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -110,21 +97,7 @@ public class SekolahDatabase extends SQLiteOpenHelper {
         if (cursorSekolah.moveToFirst()) {
             do {
                 // on below line we are adding the data from cursor to our array list.
-                sekolahModalArrayList.add(
-                        new Sekolah(
-                                cursorSekolah.getInt(0),
-                                cursorSekolah.getString(1),
-                                cursorSekolah.getString(2),
-                                cursorSekolah.getString(3),
-                                cursorSekolah.getString(4),
-                                cursorSekolah.getString(5),
-                                cursorSekolah.getString(6),
-                                cursorSekolah.getString(7),
-                                cursorSekolah.getString(8),
-                                cursorSekolah.getString(9),
-                                cursorSekolah.getInt(10)
-                        )
-                );
+                sekolahModalArrayList.add(new Sekolah(cursorSekolah.getInt(0), cursorSekolah.getString(1), cursorSekolah.getString(2), cursorSekolah.getString(3), cursorSekolah.getString(4), cursorSekolah.getString(5), cursorSekolah.getString(6), cursorSekolah.getString(7), cursorSekolah.getString(8), cursorSekolah.getString(9), cursorSekolah.getInt(10)));
             } while (cursorSekolah.moveToNext());
             // moving our cursor to next.
         }
@@ -143,19 +116,7 @@ public class SekolahDatabase extends SQLiteOpenHelper {
 
         if (cursor != null) {
             cursor.moveToFirst();
-            sekolah = new Sekolah(
-                    cursor.getInt(0),
-                    cursor.getString(1),
-                    cursor.getString(2),
-                    cursor.getString(3),
-                    cursor.getString(4),
-                    cursor.getString(5),
-                    cursor.getString(6),
-                    cursor.getString(7),
-                    cursor.getString(8),
-                    cursor.getString(9),
-                    cursor.getInt(10)
-            );
+            sekolah = new Sekolah(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7), cursor.getString(8), cursor.getString(9), cursor.getInt(10));
         }
         assert cursor != null;
         cursor.close();

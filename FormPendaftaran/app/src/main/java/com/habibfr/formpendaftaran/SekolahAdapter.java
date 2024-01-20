@@ -40,12 +40,6 @@ public class SekolahAdapter extends BaseAdapter {
 
         TextView txtNamaSekolah = view.findViewById(R.id.txtNamaSekolah);
         txtNamaSekolah.setText(curent.getNamaSekolah().toString().trim());
-//        serialNum = convertView.findViewById(R.id.serailNumber);
-//        name = convertView.findViewById(R.id.studentName);
-//        contactNum = convertView.findViewById(R.id.mobileNum);
-//        serialNum.setText(" " + arrayList.get(position).getNum());
-//        name.setText(arrayList.get(position).getName());
-//        contactNum.setText(arrayList.get(position).getMobileNumber());
         return view;
 
     }

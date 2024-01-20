@@ -1,5 +1,6 @@
 package com.habibfr.formpendaftaran;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -30,6 +31,15 @@ public class MainActivity extends AppCompatActivity {
     SekolahDatabase sekolahDatabase;
 
     Button btnSubmit;
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+
+    }
+
+
     ArrayList<Sekolah> sekolahArrayList = new ArrayList<>();
 
 
@@ -53,6 +63,12 @@ public class MainActivity extends AppCompatActivity {
         btnSubmit = findViewById(R.id.btnSubmit);
 
         sekolahDatabase = new SekolahDatabase(this.getApplicationContext());
+
+        // Tambahkan tombol kembali di ActionBar
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setTitle("Daftar Sekolah");
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
 
         // tipe sekolah

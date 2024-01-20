@@ -4,22 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center_vertical"
+    android:orientation="vertical"
     android:padding="16dp"
     tools:context=".MenuActivity">
 
 
     <Button
         android:id="@+id/btnMenuDaftarSekolah"
-        android:text="Daftar List Sekolah"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Daftar List Sekolah" />
 
     <Button
         android:id="@+id/btnMenuAdd"
-        android:text="Tambah Sekolah"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Tambah Sekolah" />
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.habibfr.formpendaftaran;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -23,9 +24,20 @@ public class ReadActivity extends AppCompatActivity {
     TextView test;
 
     @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read);
+        // Tambahkan tombol kembali di ActionBar
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setTitle("Daftar Sekolah");
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         lvDaftarListSekolah = findViewById(R.id.lvListSekolah);
 

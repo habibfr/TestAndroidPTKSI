@@ -1,5 +1,6 @@
 package com.habibfr.formpendaftaran;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -15,6 +16,12 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        // Tambahkan tombol kembali di ActionBar
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setTitle("Menu");
+        actionBar.setDisplayHomeAsUpEnabled(false);
 
         btnMenuAdd = findViewById(R.id.btnMenuAdd);
         btnMenuDaftarSekolah = findViewById(R.id.btnMenuDaftarSekolah);
@@ -34,7 +41,5 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 }

@@ -1,5 +1,6 @@
 package com.habibfr.formpendaftaran;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,18 +15,29 @@ import android.widget.TextView;
 
 public class DetailActivity extends AppCompatActivity {
     TextView editTextNamaSekolah, editTextAlamat, editTextKodePos, editTextNoTel, editTextEmail, editTextFb, editTextJumlahSiswa, editTipe, editProvinsi, editKota;
-    Button btnOk;
     int id;
     Sekolah sekolah;
     SekolahDatabase sekolahDatabase;
 
 
-
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
+        // Tambahkan tombol kembali di ActionBar
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setTitle("Detail Sekolah");
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         editTipe = findViewById(R.id.et_detail_tipe_sekolah);
         editKota = findViewById(R.id.et_detail_kota);
@@ -39,13 +51,11 @@ public class DetailActivity extends AppCompatActivity {
         editTextFb = findViewById(R.id.et_detail_facebook);
         editTextJumlahSiswa = findViewById(R.id.et_detail_jumlah_siswa);
 
-        btnOk = findViewById(R.id.btn_detail_OK);
-
         sekolah = new Sekolah();
         sekolahDatabase = new SekolahDatabase(getApplicationContext());
 
         Intent intent = getIntent();
-        if(intent != null) {
+        if (intent != null) {
             id = intent.getIntExtra("id", -1);
             sekolah = sekolahDatabase.readSekolahById(id);
 
@@ -99,15 +109,5 @@ public class DetailActivity extends AppCompatActivity {
             editTextJumlahSiswa.setEnabled(false);
             editTextJumlahSiswa.setTextColor(Color.BLACK);
         }
-
-
-
-        btnOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-
     }
 }
